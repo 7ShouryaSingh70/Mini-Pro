@@ -1,14 +1,14 @@
 #include<stdio.h>
 #include<math.h>
 
-int add1(int an, int bn)
+int add1(int a1, int b1)
 {
-    int sum1= an+bn;
+    int sum1= a1+b1;
     return sum1;
 }
-int subtract2(int ta, int td)
+int subtract2(int a, int d)
 {
-    int sub2= ta+td;
+    int sub2= a+d;
     return sub2;
 }
 /* Required by the unity test framework */
