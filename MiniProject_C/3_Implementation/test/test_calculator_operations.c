@@ -28,8 +28,8 @@ void test_add(void)
    * @brief scenario based test case for addition
    * 
    */
-    value.num_1=20*2;
-    value.num_2=-9+5;
+    value.num_1=40*2;
+    value.num_2=-10+5;
     add(value,&ans);
     TEST_ASSERT_EQUAL(36,ans.final_answer);
    
@@ -49,7 +49,7 @@ void test_sub(void)
      * @brief Requirment based test case for substraction
      * 
      */
-    value.num_1=15;
+    value.num_1=25;
     value.num_2=5;
     sub(value,&ans);
 	TEST_ASSERT_EQUAL(10,ans.final_answer);
@@ -81,8 +81,8 @@ void test_mul(void)
      * @brief Requirment Based test case for multiplication
      * 
      */
-    value.num_1=159;
-    value.num_2=286;
+    value.num_1=155;
+    value.num_2=288;
     mul(value,&ans);
 	TEST_ASSERT_EQUAL(45474,ans.final_answer);
 
