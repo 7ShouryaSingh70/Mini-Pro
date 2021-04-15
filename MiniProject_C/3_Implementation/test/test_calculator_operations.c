@@ -1,62 +1,159 @@
+#include<stdio.h>
+#include "header.h"
 #include "unity.h"
-#include <calculator_operations.h>
+#include<math.h>
+#include<stdlib.h>
 
-/* Modify these two lines according to the project */
-#include <calculator_operations.h>
-#define PROJECT_NAME    "Calculator"
+calc_arthmetic value;
+static result ans={0};
+calc_st valuee;
+static result_t anss={0};
 
-/* Prototypes for all the test functions */
-void test_add(void);
-void test_subtract(void);
-void test_multiply(void);
-void test_divide(void);
-
+void setUp(void) {}
 /* Required by the unity test framework */
-void setUp(){}
-/* Required by the unity test framework */
-void tearDown(){}
+void tearDown(void) {}
 
-/* Start of the application test */
-int main()
+void test_add(void)
 {
-/* Initiate the Unity Test Framework */
-  UNITY_BEGIN();
+    /**
+     * @brief Requirement based test case for addition
+     * 
+     */
+    value.num_1=200;
+    value.num_2=100;
+    add(value,&ans);
+	TEST_ASSERT_EQUAL(300,ans.final_answer);
 
-/* Run Test functions */
-  RUN_TEST(test_add);
-  RUN_TEST(test_subtract);
-  RUN_TEST(test_multiply);
-  RUN_TEST(test_divide);
+  /**
+   * @brief scenario based test case for addition
+   * 
+   */
+    value.num_1=20*2;
+    value.num_2=-9+5;
+    add(value,&ans);
+    TEST_ASSERT_EQUAL(36,ans.final_answer);
+   
+   /**
+   * @brief boundary based test case for addition
+   * 
+   */
+    value.num_1=-99999;
+    value.num_2= 99999;
+    add(value,&ans);
+    TEST_ASSERT_EQUAL(0,ans.final_answer);
 
-  /* Close the Unity Test Framework */
-  return UNITY_END();
+}
+void test_sub(void)
+{
+    /**
+     * @brief Requirment based test case for substraction
+     * 
+     */
+    value.num_1=15;
+    value.num_2=5;
+    sub(value,&ans);
+	TEST_ASSERT_EQUAL(10,ans.final_answer);
+
+
+    /**
+     * @brief Scenario based test case for substraction
+     * 
+     */
+    value.num_1=15*82;
+    value.num_2=-5+28;
+    sub(value,&ans);
+	TEST_ASSERT_EQUAL(1207,ans.final_answer);
+
+    /**
+     * @brief Boundary based test case for substraction
+     * 
+     */
+    value.num_1=88889;
+    value.num_2=77778;
+    sub(value,&ans);
+	TEST_ASSERT_EQUAL(11111,ans.final_answer);
+
+
+}
+void test_mul(void)
+{
+    /**
+     * @brief Requirment Based test case for multiplication
+     * 
+     */
+    value.num_1=159;
+    value.num_2=286;
+    mul(value,&ans);
+	TEST_ASSERT_EQUAL(45474,ans.final_answer);
+
+    /**
+     * @brief Scenario Based test case for multiplication
+     * 
+     */
+    value.num_1=-15;
+    value.num_2=-26;
+    mul(value,&ans);
+	TEST_ASSERT_EQUAL(390,ans.final_answer);
+
+    /**
+     * @brief Boundary Based test case for multiplication
+     * 
+     */
+    value.num_1=9999;
+    value.num_2=6666;
+    mul(value,&ans);
+	TEST_ASSERT_EQUAL(66653336,ans.final_answer);
+
+
+}
+void test_div(void)
+{
+    /**
+     * @brief requirment based test case for divison
+     * 
+     */
+    
+    value.num_1=3888;
+    value.num_2=24;
+    divv(value,&ans);
+	TEST_ASSERT_EQUAL(162,ans.final_answer);
+
+
+    /**
+     * @brief Boundary based test case for divison
+     * 
+     */
+    
+    value.num_1=9999;
+    value.num_2=3;
+    divv(value,&ans);
+	TEST_ASSERT_EQUAL(3333,ans.final_answer);
+
+
+}
+void  multiply(double a,double b)
+{
+    double mul=1;
+    mul=a*b;
+    return mul;
 }
 
-/* Write all the test functions */ 
-void test_add(void) {
-  TEST_ASSERT_EQUAL(30, add(10, 20));
-  
-  /* Dummy fail*/
-  TEST_ASSERT_EQUAL(15000, add(7500, 7500));
-}
+void test_log(void)
+{
+    /**
+     * @brief requirment based test case.
+     * 
+     */
+     valuee.num_1=8869;
+     logg(valuee,&ans);
+     TEST_ASSERT_EQUAL(3.95,ans.final_answer);
 
-void test_subtract(void) {
-  TEST_ASSERT_EQUAL(-3, subtract(0, 3));
-  
-  /* Dummy fail*/
-  TEST_ASSERT_EQUAL(100, subtract(1000, 900));
-}
+     /**
+      * @brief scenario based test case.
+      * 
+      */
+     valuee.num_1=124;
+     logg(valuee,&ans);
+     TEST_ASSERT_EQUAL(2.09,ans.final_answer);
 
-void test_multiply(void) {
-  TEST_ASSERT_EQUAL(0, multiply(1, 0));
-  
-  /* Dummy fail*/
-  TEST_ASSERT_EQUAL(10, multiply(2, 5));
-}
-
-void test_divide(void) {
-  TEST_ASSERT_EQUAL(0, divide(1, 0));
-  
-  /* Dummy fail*/
-  TEST_ASSERT_EQUAL(1, divide(2, 2));
 }
