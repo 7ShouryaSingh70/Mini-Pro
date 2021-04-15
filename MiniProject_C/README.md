@@ -1,4 +1,4 @@
-# Project Information
+Calculator
 
-* Add a brief discription about the project
-* Add the information about extra folders or files added
+
+It is a Mathematical Calculator with various function
